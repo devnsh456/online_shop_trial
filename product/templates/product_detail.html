@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+    <h3>{{category_chosen.name}}</h3>
+
+<h2 class='display-2'>{{product.name}}</h2>
+<h4 class='display-4 light'>{{product.product_code}}</h4>
+<img src='/media/{{product.product_image}}' style="height:800px;width:600px;"> </img>
+<br>
+<p>Is Available:
+{% if product.available %}
+  <i class="fa fa-check" style="font-size:24px"></i>
+  {% endif %}
+</p>
+<h4 class='display-4'> Rs.{{product.price}}</h4>
+<form action="{% url 'cart:add_product' product.product_code  %}" method="post">
+{{cart_product_form}}
+{% csrf_token %}
+<input type="submit" value="Add to Cart" class="btn btn-primary">
+</form>
+
+</div>
+
+<h6>Similar Products</h6>
+<div class='row'>
+{% for product in similar_products %}
+
+
+<a href="{% url 'product:product_detail' product.product_code %}"  ><img src='/media/{{product.product_image}}' style="height:200px;width:150px;"></img></a>
+  <div class='card-body'>
+  <p>{{product.name}}</p>
+  <em><strong>{{product.price}}</strong></em>
+  {% if product.available %}
+    <i class="fa fa-check" style="font-size:24px"></i>
+    {% endif %}
+    </div>
+
+{% endfor %}
+<div>
+{% endblock %}

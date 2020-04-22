@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class='row'>
+{% for product in product_list %}
+
+
+<a href="{% url 'product:product_detail' product.product_code %}"  ><img src='/media/{{product.product_image}}' style="height:200px;width:150px;"></img></a>
+  <div class='card-body'>
+  <p>{{product.name}}</p>
+  <em><strong>{{product.price}}</strong></em>
+  {% if product.available %}
+    <i class="fa fa-check" style="font-size:24px"></i>
+    {% endif %}
+    </div>
+
+{% endfor %}
+<div>
+{% endblock %}
