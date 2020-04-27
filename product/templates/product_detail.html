@@ -7,7 +7,7 @@
 
 <h2 class='display-2'>{{product.name}}</h2>
 <h4 class='display-4 light'>{{product.product_code}}</h4>
-<img src='/media/{{product.product_image}}' style="height:800px;width:600px;"> </img>
+<img src='{{helper}}{{product.product_image}}' style="height:800px;width:600px;"> </img>
 <br>
 <p>Is Available:
 {% if product.available %}

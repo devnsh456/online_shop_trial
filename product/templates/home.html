@@ -13,7 +13,7 @@
   {% for pro in c.products.all %}
 
 
-  <a href="{% url 'product:product_detail' pro.product_code %}"  ><img src='/media/{{pro.product_image}}' style="height:400px;width:300px;"></img></a>
+  <a href="{% url 'product:product_detail' pro.product_code %}"  ><img src='{{helper}}{{pro.product_image}}' style="height:400px;width:300px;"></img></a>
 
     <div class='card-body'>
     <br/>
