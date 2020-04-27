@@ -6,9 +6,9 @@ from botocore.client import Config
 
 s3 = boto3.resource(
     's3',
-    AWS_ACCESS_KEY_ID=env('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY=env('AWS_SECRET_ACCESS_KEY')
-    config=Config(signature_version='s3v4')
+    AWS_ACCESS_KEY_ID=env('AWS_ACCESS_KEY_ID'),
+    AWS_SECRET_ACCESS_KEY=env('AWS_SECRET_ACCESS_KEY'),
+    config=Config(signature_version='s3v4'),
 )
 # import django-storages
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
