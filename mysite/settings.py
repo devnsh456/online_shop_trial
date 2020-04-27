@@ -2,20 +2,18 @@ import os
 import environ
 import django_heroku
 from botocore.client import Config
+import boto3
 
-
-s3 = boto3.resource(
-    's3',
-    AWS_ACCESS_KEY_ID=env('AWS_ACCESS_KEY_ID'),
-    AWS_SECRET_ACCESS_KEY=env('AWS_SECRET_ACCESS_KEY'),
-    config=Config(signature_version='s3v4'),
-)
-# import django-storages
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 env=environ.Env(SECRET_KEY=str,)
 environ.Env.read_env(os.path.join(BASE_DIR,'.env'))
+
+
+# import django-storages
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
